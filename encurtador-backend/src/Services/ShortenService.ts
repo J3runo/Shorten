@@ -23,6 +23,7 @@ class ShortenService{
     }
 
     public async findbyIdentifier(identifier:string){
+        
         const link = await prisma.link.findUnique({where:{shortId:identifier}})
         if(!link){
             throw new Error("not found")
